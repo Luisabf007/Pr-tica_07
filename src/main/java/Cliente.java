@@ -1,19 +1,24 @@
 public class Cliente {
     private int id;
     private String nome;
+    private int desconto;
+    private String genero;
 
-    public Cliente(int id, String nome) {
+    public Cliente(int id, String nome, int desconto) {
         this.id = id;
         this.nome = nome;
+        this.desconto = desconto;
     }
 
     public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
     public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public int getDesconto() { return desconto; }
+    public void setDesconto(int desconto) { this.desconto = desconto; }
+    public String getGenero() { return genero; }
+    public void setGenero(String genero) { this.genero = genero; }
 
     @Override
     public String toString() {
-        return nome + " (" + id + ")";
+        return nome + "(" + id + ") (" + desconto + "%)";
     }
 }
