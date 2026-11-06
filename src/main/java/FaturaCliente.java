@@ -9,15 +9,26 @@ public class FaturaCliente {
         this.valor = valor;
     }
 
+    public FaturaCliente(int id) {
+        this.id = id;
+    }
+
     public int getId() { return id; }
     public Cliente getCliente() { return cliente; }
     public void setCliente(Cliente cliente) { this.cliente = cliente; }
     public double getValor() { return valor; }
     public void setValor(double valor) { this.valor = valor; }
 
+    public double getValorComDesconto() {
+        if (cliente != null) {
+            return valor - (valor * cliente.getDesconto() / 100.0);
+        }
+        return valor;
+    }
+
     @Override
     public String toString() {
-        String nomeCliente = (cliente != null) ? cliente.getNome() : "Desconhecido";
-        return "Fatura " + id + " - Cliente: " + nomeCliente + " - Valor: R$" + valor;
+        String infoCliente = (cliente != null) ? cliente.toString() : "null";
+        return "Fatura [id=" + id + ", cliente=" + infoCliente + ", valor=" + valor + " ]";
     }
 }

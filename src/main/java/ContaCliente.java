@@ -37,4 +37,11 @@ public class ContaCliente {
         }
         return saldo;
     }
+
+    @Override
+    public String toString() {
+        String nomeCliente = (cliente != null) ? cliente.getNome() : "Desconhecido";
+        int idCliente = (cliente != null) ? cliente.getId() : 0;
+        return nomeCliente + "(" + idCliente + ") saldo=R$" + String.format("%.2f", saldo);
+    }
 }
