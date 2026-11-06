@@ -4,10 +4,19 @@ public class ContaCliente {
     private double saldo = 0.0;
 
     public ContaCliente(int id, Cliente cliente, double saldo) {
-        this.id = id; this.cliente = cliente; this.saldo = saldo;
+        this.id = id;
+        this.cliente = cliente;
+        this.saldo = saldo;
     }
-    public ContaCliente(int id, Cliente cliente) { this.id = id; this.cliente = cliente; }
-    public ContaCliente(int id) { this.id = id; }
+
+    public ContaCliente(int id, Cliente cliente) {
+        this.id = id;
+        this.cliente = cliente;
+    }
+
+    public ContaCliente(int id) {
+        this.id = id;
+    }
 
     public int getId() { return id; }
     public Cliente getCliente() { return cliente; }
@@ -19,6 +28,7 @@ public class ContaCliente {
         if (valor > 0) saldo += valor;
         return saldo;
     }
+
     public double subSaldo(double valor) {
         if (valor > saldo) {
             System.out.println("Saldo insuficiente.");
@@ -26,11 +36,5 @@ public class ContaCliente {
             saldo -= valor;
         }
         return saldo;
-    }
-    @Override
-    public String toString() {
-        String nomeCliente = (cliente != null) ? cliente.getNome() : "Desconhecido";
-        int idCliente = (cliente != null) ? cliente.getId() : 0;
-        return nomeCliente + " (" + idCliente + ") saldo =R$" + saldo;
     }
 }
